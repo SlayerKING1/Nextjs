@@ -2,7 +2,7 @@
 import React, { use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import  axios  from "axios";
+import axios from "axios";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 
@@ -13,9 +13,8 @@ export default function LoginPage() {
     password: "",
   });
 
-  const[buttonDisabled, setButtonDisabled] = React.useState(false);
-  const[Loading, setLoading] = React.useState(false);
-
+  const [buttonDisabled, setButtonDisabled] = React.useState(false);
+  const [Loading, setLoading] = React.useState(false);
 
   const onLogin = async () => {
     setLoading(true);
@@ -36,21 +35,20 @@ export default function LoginPage() {
     }
   };
 
-
-
   useEffect(() => {
-    if(username.email && username.password) {
+    if (username.email && username.password) {
       setButtonDisabled(false);
-    }else{
+    } else {
       setButtonDisabled(true);
     }
-  } ,[username]);
-
+  }, [username]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black">
       <h1 className="text-2xl font-bold mb-4">Login</h1>
-      <p className="mb-4">{Loading ? "loading..." : "Login Into Your Account"}</p>
+      <p className="mb-4">
+        {Loading ? "loading..." : "Login Into Your Account"}
+      </p>
       <div className="bg-gray-500 p-6 rounded shadow-md w-96">
         <form>
           <label className="block mb-4" htmlFor="email">
@@ -88,10 +86,19 @@ export default function LoginPage() {
               }}
             />
           </label>
+          <p className="text-sm text-right mt-1 mb-4">
+            <Link
+              href="/ForgotPassword"
+              className="text-yellow-400 hover:underline"
+            >
+              Forgot your password?
+            </Link>
+          </p>
+
           <br />
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+            className="bg-green-700 text-white px-4 py-2 rounded hover:bg-blue-700"
             onClick={(e) => {
               e.preventDefault();
               onLogin();

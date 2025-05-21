@@ -40,7 +40,7 @@ export default function ResetPasswordPage() {
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 className="text-3xl font-bold mb-4">Reset Your Password</h1>
       {success ? (
-        <div className="bg-green-200 p-4 rounded">Password reset successful! You can now log in.</div>
+        <div className="bg-green-700 p-4 rounded">Password reset successful! You can now log in.</div>
       ) : (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
           <input
